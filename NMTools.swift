@@ -122,3 +122,14 @@ extension UITableView {
         return nil
     }
 }
+
+extension UIFont {
+    var monospacedDigitFont: UIFont {
+        let fontDescriptorFeatureSettings = [[UIFontFeatureTypeIdentifierKey: kNumberSpacingType, UIFontFeatureSelectorIdentifierKey: kMonospacedNumbersSelector]]
+        let fontDescriptorAttributes = [UIFontDescriptorFeatureSettingsAttribute: fontDescriptorFeatureSettings]
+        let oldFontDescriptor = fontDescriptor()
+        let newFontDescriptor = oldFontDescriptor.fontDescriptorByAddingAttributes(fontDescriptorAttributes)
+        
+        return UIFont(descriptor: newFontDescriptor, size: 0)
+    }
+}
